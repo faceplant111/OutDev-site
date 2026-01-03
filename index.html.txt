@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>OutDev — разработка сайтов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f6f8;
+      color: #1a1a1a;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 10px;
+      border: 1px solid #1a1a1a;
+      background: none;
+      color: #1a1a1a;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    section {
+      padding: 60px 20px;
+      background: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>OutDev</h1>
+  <p>Создаём сайты под ключ. Подбираем разработчиков и сопровождаем проект от идеи до запуска.</p>
+  <a href="#client" class="btn">Заказать сайт</a>
+  <a href="#dev" class="btn">Стать разработчиком</a>
+</header>
+
+<section>
+  <h2 style="text-align:center;">Чем мы занимаемся</h2>
+  <ul class="list">
+    <li>Лендинги и сайты-визитки</li>
+    <li>Корпоративные сайты</li>
+    <li>Интернет-магазины</li>
+    <li>Доработка и поддержка</li>
+  </ul>
+</section>
+
+<section>
+  <h2 style="text-align:center;">Как мы работаем</h2>
+  <ul class="list">
+    <li>Вы оставляете заявку</li>
+    <li>Мы уточняем задачу</li>
+    <li>Подбираем разработчика</li>
+    <li>Контролируем процесс</li>
+    <li>Вы получаете готовый сайт</li>
+  </ul>
+</section>
+
+<section id="client">
+  <h2 style="text-align:center;">Заявка на создание сайта</h2>
+  <form onsubmit="sendClient(event)">
+    <input type="text" id="c_name" placeholder="Ваше имя" required>
+    <input type="text" id="c_contact" placeholder="Telegram или Email" required>
+    <textarea id="c_task" placeholder="Опишите ваш проект" required></textarea>
+    <button class="btn" type="submit">Отправить заявку</button>
+  </form>
+</section>
+
+<section id="dev">
+  <h2 style="text-align:center;">Стать разработчиком OutDev</h2>
+  <form onsubmit="sendDev(event)">
+    <input type="text" id="d_name" placeholder="Ваше имя" required>
+    <input type="text" id="d_skills" placeholder="Навыки / стек" required>
+    <input type="text" id="d_portfolio" placeholder="GitHub / портфолио">
+    <input type="text" id="d_contact" placeholder="Telegram" required>
+    <button class="btn" type="submit">Оставить заявку</button>
+  </form>
+</section>
+
+<footer>
+  OutDev © 2026 · Работаем по СНГ · Telegram: @OutDgtl
+</footer>
+
+<script>
+  const TOKEN = "8454482511:AAG8M9CkkQCqJY781iNg_Oxi5WqfDKo1GRc";
+  const CHAT_ID = "8328043359";
+
+  function sendMessage(text) {
+    fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text
+      })
+    });
+  }
+
+  function sendClient(e) {
+    e.preventDefault();
+    sendMessage(
+      "🧑‍💼 Заявка на сайт\n" +
+      "Имя: " + c_name.value + "\n" +
+      "Контакт: " + c_contact.value + "\n" +
+      "Проект: " + c_task.value
+    );
+    alert("Заявка отправлена");
+    e.target.reset();
+  }
