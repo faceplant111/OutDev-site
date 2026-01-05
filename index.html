@@ -1506,7 +1506,7 @@
                         <li><i class="fas fa-check"></i> SEO-оптимизация</li>
                         <li><i class="fas fa-check"></i> Аналитика и метрики</li>
                     </ul>
-                    <div class="service-price">от 25 000 ₽</div>
+                    <div class="service-price">от 10 000 ₽ до 25 000 ₽</div>
                     <button class="service-cta" data-scroll="contact">
                         Заказать <i class="fas fa-arrow-right"></i>
                     </button>
@@ -1525,7 +1525,7 @@
                         <li><i class="fas fa-check"></i> Мультиязычность</li>
                         <li><i class="fas fa-check"></i> Поддержка 24/7</li>
                     </ul>
-                    <div class="service-price">от 45 000 ₽</div>
+                    <div class="service-price">от 25 000 ₽ до 50 000 ₽</div>
                     <button class="service-cta" data-scroll="contact">
                         Заказать <i class="fas fa-arrow-right"></i>
                     </button>
@@ -1544,7 +1544,7 @@
                         <li><i class="fas fa-check"></i> Интеграция с 1С и CRM</li>
                         <li><i class="fas fa-check"></i> Мобильное приложение</li>
                     </ul>
-                    <div class="service-price">от 75 000 ₽</div>
+                    <div class="service-price">от 50 000 ₽ до 150 000 ₽</div>
                     <button class="service-cta" data-scroll="contact">
                         Заказать <i class="fas fa-arrow-right"></i>
                     </button>
@@ -1739,17 +1739,17 @@
                 <form id="clientForm">
                     <div class="form-group">
                         <label class="form-label">👤 Ваше имя</label>
-                        <input type="text" class="form-control" placeholder="Иван Иванов" required>
+                        <input type="text" class="form-control" name="name" placeholder="Иван Иванов" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">📧 Email или телефон</label>
-                        <input type="text" class="form-control" placeholder="example@mail.ru или +7 (999) 123-45-67" required>
+                        <input type="text" class="form-control" name="contact" placeholder="example@mail.ru или +7 (999) 123-45-67" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">🌐 Тип сайта</label>
-                        <select class="form-control" required>
+                        <select class="form-control" name="type" required>
                             <option value="">Выберите тип сайта</option>
                             <option value="landing">Лендинг</option>
                             <option value="corporate">Корпоративный сайт</option>
@@ -1760,8 +1760,10 @@
                     
                     <div class="form-group">
                         <label class="form-label">💡 Опишите ваш проект</label>
-                        <textarea class="form-control" rows="4" placeholder="Расскажите о вашем проекте, целях, целевой аудитории и пожеланиях..." required></textarea>
+                        <textarea class="form-control" name="task" rows="4" placeholder="Расскажите о вашем проекте, целях, целевой аудитории и пожеланиях..." required></textarea>
                     </div>
+                    
+                    <input type="hidden" name="formType" value="client">
                     
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 18px;">
                         <i class="fas fa-paper-plane"></i> Отправить заявку
@@ -1926,12 +1928,12 @@
                 <form id="devForm">
                     <div class="form-group">
                         <label class="form-label">👤 Ваше имя</label>
-                        <input type="text" class="form-control" placeholder="Иван Иванов" required>
+                        <input type="text" class="form-control" name="name" placeholder="Иван Иванов" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">💻 Ваш уровень и специализация</label>
-                        <select class="form-control" required>
+                        <select class="form-control" name="level" required>
                             <option value="">Выберите уровень</option>
                             <option value="junior">Junior Frontend Developer</option>
                             <option value="middle">Middle Frontend Developer</option>
@@ -1946,23 +1948,25 @@
                     
                     <div class="form-group">
                         <label class="form-label">🛠️ Технологии и навыки</label>
-                        <input type="text" class="form-control" placeholder="React, Node.js, MongoDB, TypeScript..." required>
+                        <input type="text" class="form-control" name="skills" placeholder="React, Node.js, MongoDB, TypeScript..." required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">📁 Ссылка на портфолио или GitHub</label>
-                        <input type="text" class="form-control" placeholder="https://github.com/username или ссылка на работы">
+                        <input type="text" class="form-control" name="portfolio" placeholder="https://github.com/username или ссылка на работы">
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">📞 Telegram для связи</label>
-                        <input type="text" class="form-control" placeholder="@username" required>
+                        <input type="text" class="form-control" name="contact" placeholder="@username" required>
                     </div>
                     
                     <div class="form-group">
                         <label class="form-label">💬 О себе и опыте работы</label>
-                        <textarea class="form-control" rows="4" placeholder="Расскажите о своем опыте, проектах и ожиданиях от работы..."></textarea>
+                        <textarea class="form-control" name="about" rows="4" placeholder="Расскажите о своем опыте, проектах и ожиданиях от работы..."></textarea>
                     </div>
+                    
+                    <input type="hidden" name="formType" value="dev">
                     
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 18px;">
                         <i class="fas fa-paper-plane"></i> Отправить заявку
@@ -1984,8 +1988,8 @@
                 <h3>OutDev</h3>
                 <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 20px; line-height: 1.6;">Создаём сайты, которые продают. Профессиональная разработка под ключ с гарантией результата.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://t.me/OutDgtl" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/375291916202" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                 </div>
@@ -2004,10 +2008,11 @@
             <div class="footer-section">
                 <h3>Контакты</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@outdev.ru</li>
-                    <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +7 (999) 123-45-67</li>
-                    <li><i class="fab fa-telegram" style="margin-right: 10px;"></i> @OutDevSupport</li>
-                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Работаем по всей России</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> outdevdgtl@gmail.com</li>
+                    <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +375291916202</li>
+                    <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +375336516943</li>
+                    <li><i class="fab fa-telegram" style="margin-right: 10px;"></i> @OutDgtl</li>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Работаем по всему СНГ</li>
                     <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Пн-Пт: 9:00-20:00</li>
                 </ul>
             </div>
@@ -2163,12 +2168,12 @@
         });
 
 
-        // Инициализация форм
+        // Инициализация форм - отправка в Telegram
         function initForms() {
             // Форма для клиентов
             const clientForm = document.getElementById('clientForm');
             if (clientForm) {
-                clientForm.addEventListener('submit', function(e) {
+                clientForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     const submitBtn = this.querySelector('button[type="submit"]');
@@ -2177,20 +2182,37 @@
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
                     submitBtn.disabled = true;
                     
-                    // Имитация отправки
-                    setTimeout(() => {
-                        showNotification('✅ Заявка отправлена! Мы свяжемся с вами в течение 2 часов.', 'success');
-                        this.reset();
+                    const formData = new FormData(this);
+                    const data = {};
+                    formData.forEach((value, key) => data[key] = value);
+                    
+                    // Определяем тип формы
+                    const formType = data.formType || 'client';
+                    
+                    try {
+                        // Отправка в Telegram
+                        const response = await sendToTelegram(data, formType);
+                        
+                        if (response.ok) {
+                            showNotification('✅ Заявка отправлена! Мы свяжемся с вами в течение 2 часов.', 'success');
+                            this.reset();
+                        } else {
+                            showNotification('❌ Ошибка отправки. Попробуйте позже.', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Ошибка отправки:', error);
+                        showNotification('❌ Ошибка сети. Проверьте интернет.', 'error');
+                    } finally {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
-                    }, 1500);
+                    }
                 });
             }
             
             // Форма для разработчиков
             const devForm = document.getElementById('devForm');
             if (devForm) {
-                devForm.addEventListener('submit', function(e) {
+                devForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     const submitBtn = this.querySelector('button[type="submit"]');
@@ -2199,15 +2221,60 @@
                     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
                     submitBtn.disabled = true;
                     
-                    // Имитация отправки
-                    setTimeout(() => {
-                        showNotification('✅ Заявка отправлена! Мы свяжемся с вами в течение 24 часов для обсуждения тестового задания.', 'success');
-                        this.reset();
+                    const formData = new FormData(this);
+                    const data = {};
+                    formData.forEach((value, key) => data[key] = value);
+                    
+                    // Определяем тип формы
+                    const formType = data.formType || 'dev';
+                    
+                    try {
+                        // Отправка в Telegram
+                        const response = await sendToTelegram(data, formType);
+                        
+                        if (response.ok) {
+                            showNotification('✅ Заявка отправлена! Мы свяжемся с вами в течение 24 часов для обсуждения тестового задания.', 'success');
+                            this.reset();
+                        } else {
+                            showNotification('❌ Ошибка отправки. Попробуйте позже.', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Ошибка отправки:', error);
+                        showNotification('❌ Ошибка сети. Проверьте интернет.', 'error');
+                    } finally {
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
-                    }, 1500);
+                    }
                 });
             }
+        }
+
+
+        // Функция отправки данных в Telegram
+        async function sendToTelegram(data, type) {
+            const TOKEN = '8454482511:AAG8M9CkkQCqJY781iNq_0x15WqfDKclGRc';
+            const CHAT_ID = '8328043359';
+            
+            // Формируем текст сообщения
+            let text = '';
+            if (type === 'client') {
+                text = `НОВАЯ ЗАЯВКА НА САЙТ\n\nИмя: ${data.name || 'Не указано'}\nКонтакт: ${data.contact || 'Не указано'}\nТип сайта: ${data.type || 'Не указано'}\nПроект: ${data.task || 'Не указано'}\n\n${new Date().toLocaleString('ru-RU')}`;
+            } else if (type === 'dev') {
+                text = `ЗАЯВКА РАЗРАБОТЧИКА\n\nИмя: ${data.name || 'Не указано'}\nУровень: ${data.level || 'Не указано'}\nНавыки: ${data.skills || 'Не указано'}\nПортфолио: ${data.portfolio || 'Не указано'}\nTelegram: ${data.contact || 'Не указано'}\nО себе: ${data.about || 'Не указано'}\n\n${new Date().toLocaleString('ru-RU')}`;
+            }
+
+
+            // Кодируем текст для URL
+            const encodedText = encodeURIComponent(text);
+            
+            // Формируем URL для отправки
+            const telegramUrl = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodedText}&parse_mode=HTML`;
+            
+            // Отправляем запрос
+            const response = await fetch(telegramUrl);
+            const result = await response.json();
+            
+            return result;
         }
 
 
